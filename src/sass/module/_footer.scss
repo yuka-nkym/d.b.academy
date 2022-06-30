@@ -1,0 +1,115 @@
+@use "global" as *;
+
+.footer {
+  text-align: center;
+  padding-top: rem(20);
+  background: $black;
+
+  @include mq() {
+    padding-top: rem(30);
+  }
+}
+
+.footer__list {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include mq() {
+    width: min(100%, rem(750));
+    margin: 0 auto;
+  }
+}
+
+.footer__item {
+  width: calc(100% / 3);
+
+  @include mq() {
+    width: calc(100% / 6);
+  }
+}
+
+.footer__item a {
+  display: inline-block;
+  font-family: $font-family-en;
+  width: 100%;
+  padding: rem(7) 0;
+
+  @include mq() {
+    padding: 0 rem(15);
+    position: relative;
+    transition: 0.3s;
+  }
+}
+
+.footer__item span {
+  display: block;
+  font-family: $base-font-family;
+  font-size: rem(15);
+  line-height: 1;
+}
+
+.footer__item a::after {
+  @include mq() {
+    content: "";
+    position: absolute;
+    bottom: rem(-16);
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    background-color: $color-main;
+    opacity: 0;
+    transition: 0.5s;
+  }
+}
+
+.footer__item a:hover::after {
+  @media (any-hover: hover) {
+    bottom: rem(-8);
+    opacity: 1;
+    width: rem(60);
+  }
+}
+
+.footer__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(40) 0;
+}
+
+.footer__logo {
+  display: inline-block;
+  width: rem(60);
+}
+
+.footer__sns {
+  display: inline-block;
+  width: rem(50);
+  height: rem(50);
+  margin-left: rem(16);
+}
+
+.footer__sns i {
+  font-size: rem(40);
+  padding-top: rem(4);
+}
+
+.footer__copyright {
+  background: $gray;
+  padding: rem(10) 0;
+  line-height: 2;
+
+  @include mq() {
+    padding: rem(16) 0;
+  }
+}
+
+.footer__copyright small {
+  font-size: rem(12);
+  font-family: $second-font-family;
+  letter-spacing: 0.15em;
+
+  @include mq() {
+    font-size: rem(14);
+  }
+}

@@ -1,0 +1,52 @@
+@use "global" as *;
+
+.btn-top {
+  display: inline-block;
+  border: 1px solid $gray;
+  background-color: $white;
+  text-align: center;
+  transition: 0.3 ease;
+  line-height: 1;
+  color: $gray;
+  font-size: rem(16);
+  padding: rem(7) rem(10);
+
+  @include mq() {
+    position: relative;
+    font-size: rem(18);
+    z-index: map-get($layer, "btn");
+    width: min(100%, rem(250));
+    padding: rem(16) 0;
+  }
+}
+
+.btn-top:hover {
+  @media (any-hover: hover) {
+    color: $white;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $gray;
+    }
+  }
+}
+
+.btn-top::before {
+  @include mq() {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    display: block;
+    background-color: $gray;
+    z-index: -1;
+    transition: 0.3s;
+  }
+}
+
+.btn-top:hover::before {
+  @include mq() {
+    width: 100%;
+  }
+}

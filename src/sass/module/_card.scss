@@ -1,0 +1,44 @@
+@use "global" as *;
+/* カード単体 */
+.card {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.card__title {
+  background-color: $color-main;
+  color: $black;
+  aspect-ratio: 1/1;
+  font-size: rem(18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: min(100%, rem(140));
+  transition: all 1s linear 0s;
+
+  @include mq() {
+    width: min(100%, rem(150));
+  }
+}
+
+.card__title:hover {
+  @media (any-hover: hover) {
+    transform: rotateY(360deg);
+  }
+}
+
+.card__lists {
+  padding: rem(16) 0;
+  text-align: justify;
+  width: min(100%, rem(200));
+  margin-right: auto;
+  margin-left: auto;
+
+  @include mq() {
+    list-style: disc outside none;
+    width: min(100%, rem(180));
+  }
+}

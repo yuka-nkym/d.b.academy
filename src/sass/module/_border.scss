@@ -1,0 +1,29 @@
+@use "global" as *;
+
+$border-color: rgba(173, 255, 91, 0.3);
+
+.border {
+  position: relative;
+}
+
+.border::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  z-index: map-get($layer, "border");
+  height: rem(1350);
+  top: rem(75);
+  left: 0;
+  background-image: linear-gradient(
+    to left top,
+    transparent 49.95%,
+    $border-color 50.05%,
+    $border-color calc(50.05% + 0.5px),
+    transparent calc(50.15% + 0.5px)
+  );
+
+  @include mq() {
+    top: rem(90);
+    height: rem(1230);
+  }
+}

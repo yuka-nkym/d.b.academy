@@ -1,0 +1,46 @@
+@use "global" as *;
+
+.price {
+  background: $gray;
+  padding: rem(50) 0;
+
+  @include mq() {
+    padding: rem(70) 0;
+  }
+}
+
+.price__inner {
+  width: min(100%, rem(700));
+}
+
+.price__message {
+  padding: rem(50) 0;
+  text-align: center;
+
+  @include mq() {
+    padding: rem(100) 0;
+  }
+}
+
+.price__table {
+  @include mq() {
+    margin: auto 0;
+  }
+}
+
+.price__text {
+  font-size: rem(14);
+  padding-top: rem(8);
+
+  @include mq() {
+    padding-top: rem(10);
+  }
+}
+
+.price__btn {
+  margin-top: rem(60);
+
+  @include mq() {
+    margin-top: rem(70);
+  }
+}

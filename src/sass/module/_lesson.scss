@@ -1,0 +1,25 @@
+@use "global" as *;
+
+.lesson__inner {
+  @include mq() {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.lesson__text {
+  padding: rem(50) 0;
+
+  @include mq() {
+    padding-top: rem(100);
+    width: calc(100% - rem(30) / 2);
+  }
+}
+
+.lesson__accordion {
+  @include mq() {
+    width: calc(100% - rem(30) / 2);
+    padding-top: rem(100);
+    padding-left: rem(30);
+  }
+}

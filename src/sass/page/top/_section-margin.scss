@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.section-margin {
+  margin-top: rem(100);
+
+  @include mq() {
+    margin-top: rem(150);
+  }
+}

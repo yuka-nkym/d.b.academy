@@ -1,0 +1,35 @@
+@use "global" as *;
+
+.contact-done__name {
+  font-size: rem(30);
+  padding: rem(50) 0;
+
+  @include mq() {
+    font-size: rem(40);
+    padding: rem(70) 0;
+  }
+}
+
+.contact-done__home {
+  text-align: center;
+  margin-top: rem(50);
+
+  @include mq() {
+    margin-top: rem(70);
+  }
+}
+
+.contact-done__icon {
+  display: inline-block;
+}
+
+.fa-home {
+  color: $white;
+  font-size: rem(30);
+}
+
+.fa-home:hover {
+  @media (any-hover: hover) {
+    color: $white;
+  }
+}

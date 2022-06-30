@@ -1,0 +1,66 @@
+@use "global" as *;
+
+.accordion {
+  width: 100%;
+}
+
+.accordion + .accordion {
+  margin-top: rem(20);
+}
+
+.accordion__title {
+  background-color: $gray;
+  padding: rem(8) rem(16);
+  color: $white;
+  position: relative;
+  transition: 0.3s;
+}
+
+.accordion__title:hover {
+  @media (any-hover: hover) {
+    cursor: pointer;
+    color: $color-main;
+    background-color: $gray-sub;
+  }
+}
+
+.accordion__title i {
+  padding-right: rem(8);
+}
+
+.accordion__title::after {
+  content: "＋";
+  position: absolute;
+  right: rem(16);
+  top: rem(12);
+  font-weight: $bold;
+  line-height: 1;
+  transition: 0.8s;
+}
+
+//アコーデイオンが開かれている時
+.accordion[open] .accordion__title::after {
+  content: "－";
+  right: rem(16);
+  font-weight: $bold;
+}
+
+.accordion__text {
+  padding: rem(8) rem(16);
+  text-align: justify;
+  color: $black;
+  background: $white;
+}
+
+/* オープン時ふわっと*/
+details[open] .accordion__text {
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

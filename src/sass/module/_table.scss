@@ -1,0 +1,40 @@
+@use "global" as *;
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+td {
+  vertical-align: middle;
+  padding: rem(10) rem(20);
+  border: 1px solid $gray-sub;
+  font-size: rem(18);
+  font-weight: $regular;
+  letter-spacing: 0.1em;
+
+  @include mq() {
+    font-size: rem(20);
+    padding: rem(16) rem(30);
+  }
+}
+
+table th {
+  color: $white;
+  background: $gray-sub;
+  width: 55%;
+  text-align: left;
+
+  @include mq() {
+    width: 40%;
+  }
+}
+
+table td {
+  background: $white;
+  color: $black;
+  font-family: $second-font-family;
+  font-weight: $bold;
+}

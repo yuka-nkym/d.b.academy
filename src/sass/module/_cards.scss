@@ -1,0 +1,39 @@
+@use "global" as *;
+/* カード複数 */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+//spの偶数
+.cards__item:nth-of-type(2n) {
+  margin-left: rem(20);
+
+  @include mq() {
+    margin-left: 0;
+  }
+}
+
+/* 枚数が増えた時用*/
+//4倍した次のカード以外
+.cards__item:not(:nth-of-type(4n + 1)) {
+  @include mq() {
+    margin-left: rem(50);
+  }
+}
+
+// 4枚目以上
+.cards__item:nth-of-type(n + 5) {
+  @include mq() {
+    margin-top: rem(25);
+  }
+}
+
+//sp2列,md4列
+.cards--col4 > .cards__item {
+  width: min(100%, calc((100% - rem(40)) / 2));
+
+  @include mq() {
+    width: min(100%, calc((100% - rem(150)) / 4));
+  }
+}

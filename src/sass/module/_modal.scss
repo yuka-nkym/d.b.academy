@@ -1,0 +1,132 @@
+@use "global" as *;
+
+.modal-background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.7);
+  top: 0;
+  left: 0;
+  z-index: map-get($layer, "modal");
+  display: none;
+}
+
+.modal-background.is-show,
+.modal.is-show {
+  display: block;
+  animation: open 0.3s;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: map-get($layer, "modal");
+  background: $black;
+  display: none;
+  width: 90%;
+  height: 90%;
+  padding: rem(38) rem(20);
+
+  @include mq() {
+    width: 80%;
+    height: 80%;
+    padding: rem(40) rem(30);
+  }
+}
+
+.modal__close-icon {
+  text-align: center;
+  position: absolute;
+  right: rem(-16);
+  top: rem(-16);
+  cursor: pointer;
+  width: rem(43);
+  background: $white;
+  border-radius: 50%;
+}
+
+.modal__close-icon:hover {
+  @media (any-hover: hover) {
+    background: $color-main;
+  }
+}
+
+.modal__title {
+  font-size: rem(24);
+  font-weight: $bold;
+  text-align: center;
+  padding-bottom: rem(10);
+  position: relative;
+  color: $white;
+  font-family: $second-font-family;
+}
+
+.modal__title::after {
+  content: "";
+  width: rem(100);
+  height: rem(2);
+  background: $color-main;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.modal__content {
+  overflow: auto;
+  margin-top: rem(20);
+  height: 75%;
+}
+
+.modal__head {
+  font-size: rem(18);
+  padding-left: rem(16);
+  position: relative;
+  font-weight: $bold;
+  font-family: $second-font-family;
+}
+
+.modal__head:nth-of-type(n + 1) {
+  margin-top: rem(32);
+
+  @include mq() {
+    margin-top: rem(40);
+  }
+}
+
+.modal__head::before {
+  content: "";
+  position: absolute;
+  height: rem(18);
+  width: rem(3);
+  background: $color-main;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+
+.modal__text {
+  padding: 0 rem(16);
+  margin-top: rem(6);
+  line-height: 1.6;
+}
+
+.modal__close-btn {
+  text-align: center;
+  margin-top: rem(25);
+
+  @include mq() {
+    margin-top: rem(45);
+  }
+}

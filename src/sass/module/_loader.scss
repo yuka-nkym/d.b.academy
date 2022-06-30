@@ -1,0 +1,24 @@
+@use "global" as *;
+
+.loader-bg {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: map-get($layer, "loader");
+}
+
+.loader-bg .ball-zig-zag {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: map-get($layer, "loader");
+}
+
+.ball-zig-zag-deflect > div,
+.ball-zig-zag > div {
+  background-color: $color-main;
+}

@@ -1,0 +1,18 @@
+@use "global" as *;
+
+.news__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.news__title {
+  font-family: $second-font-family;
+  border: 1px solid $white;
+  padding: rem(2) rem(8);
+}
+
+.news__text {
+  padding-left: rem(20);
+  letter-spacing: 0.15em;
+}

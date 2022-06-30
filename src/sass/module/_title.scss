@@ -1,0 +1,55 @@
+@use "global" as *;
+
+.title {
+  position: relative;
+  padding: rem(20) 0;
+  font-size: rem(18);
+  text-align: center;
+
+  @include mq() {
+    font-size: rem(20);
+  }
+}
+
+.title span {
+  position: relative;
+  z-index: map-get($layer, "top");
+  top: rem(20);
+  letter-spacing: 0.15em;
+
+  @include mq() {
+    top: rem(30);
+  }
+}
+
+.title::before {
+  content: attr(data-en);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(173, 255, 91, 0.2);
+  font-size: rem(50);
+  font-family: $font-family-title;
+  font-weight: $medium;
+  z-index: map-get($layer, "btn");
+
+  @include mq() {
+    font-size: rem(60);
+  }
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: rem(-8);
+  left: 50%;
+  transform: translate(-50%);
+  width: rem(30);
+  height: rem(2);
+  background: $color-main;
+
+  @include mq() {
+    bottom: rem(-20);
+  }
+}

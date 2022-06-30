@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.faq-margin {
+  margin-top: rem(80);
+
+  @include mq() {
+    margin-top: rem(130);
+  }
+}

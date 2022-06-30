@@ -1,0 +1,43 @@
+@use "global" as *;
+
+.pagetop {
+  display: block;
+  position: fixed;
+  bottom: rem(41);
+  right: rem(21);
+  background-color: $color-main;
+  width: rem(45);
+  height: rem(45);
+  border-radius: 50px;
+  z-index: map-get($layer, "pagetop");
+  transition: 0.3s ease;
+
+  @include mq() {
+    bottom: rem(32);
+    right: rem(32);
+  }
+}
+
+.pagetop::after {
+  content: "";
+  position: absolute;
+  top: rem(17);
+  left: rem(13.7);
+  transform: rotate(45deg);
+  width: rem(18);
+  height: rem(18);
+  border-top: 3.5px solid $white;
+  border-left: 3.5px solid $white;
+}
+
+.pagetop:hover {
+  @include mq() {
+    background-color: $white;
+  }
+}
+
+.pagetop:hover::after {
+  @include mq() {
+    border-color: $color-main;
+  }
+}

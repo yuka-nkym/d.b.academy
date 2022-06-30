@@ -1,0 +1,97 @@
+@use "global" as *;
+
+.media {
+  @include mq() {
+    background: linear-gradient(to left, $gray 0, $gray 70%, transparent 70%, transparent 100%);
+  }
+}
+
+.media:not(:first-child) {
+  @include mq() {
+    margin-top: rem(100);
+  }
+}
+
+.media__wrapper {
+  @include mq() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 rem(25);
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.media__img {
+  width: min(100%, rem(600));
+  aspect-ratio: 375/261;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include mq() {
+    width: min(100%, rem(450));
+    aspect-ratio: 557/389;
+    margin: 0;
+  }
+}
+
+.media__img img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.media__content {
+  padding: rem(24) rem(20);
+  background-color: $gray;
+
+  @include mq() {
+    width: min(100%, 51rem);
+    padding: rem(115) 0;
+    background-color: rgba(51, 51, 51, 0);
+    margin-left: rem(30);
+  }
+}
+
+.media__main-title {
+  font-size: rem(20);
+  text-align: center;
+  line-height: 1.45;
+  letter-spacing: 0.1em;
+
+  @include mq() {
+    font-size: rem(25);
+    line-height: 1;
+    text-align: left;
+  }
+}
+
+.media__text {
+  line-height: 1.4;
+  padding-top: rem(20);
+
+  @include mq() {
+    line-height: 2;
+    padding-top: rem(40);
+  }
+}
+/* ----------------------
+逆バージョン
+------------------------- */
+.media--reverse {
+  @include mq() {
+    background: linear-gradient(to right, $gray 0, $gray 70%, transparent 70%, transparent 100%);
+  }
+}
+
+.media__wrapper--reverse {
+  @include mq() {
+    flex-direction: row-reverse;
+  }
+}
+
+.media__img--reverse {
+  @include mq() {
+    margin-left: rem(30);
+  }
+}

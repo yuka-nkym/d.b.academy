@@ -1,0 +1,46 @@
+@use "global" as *;
+
+.contact-check__text {
+  font-size: rem(30);
+  padding: rem(50) 0;
+
+  @include mq() {
+    font-size: rem(40);
+    padding: rem(70) 0;
+  }
+}
+
+.contact-check__wrapper {
+  padding: rem(20) 0;
+
+  @include mq() {
+    padding: rem(40) 0;
+  }
+}
+
+.contact-check__message {
+  margin-top: rem(20);
+}
+
+.contact-check__btn {
+  @include mq() {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.contact-check__btn .btn {
+  @include mq() {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.contact-check__btn .btn-box--silver {
+  margin-top: rem(16);
+
+  @include mq() {
+    margin-top: 0;
+    margin-left: rem(32);
+  }
+}

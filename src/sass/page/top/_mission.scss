@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.mission__media {
+  margin-top: rem(50);
+
+  @include mq() {
+    margin-top: rem(100);
+  }
+}

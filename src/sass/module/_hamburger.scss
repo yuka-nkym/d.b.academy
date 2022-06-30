@@ -1,0 +1,49 @@
+@use "global" as *;
+
+$drawer-width: rem(30); //ドロワーの幅
+$drawer-height: rem(3); //ドロワー線の高さ
+$drawer-color: $white; //ドロワー線の色
+
+.hamburger {
+  z-index: map-get($layer, "hamburger");
+}
+
+.hamburger span {
+  position: relative;
+  display: block;
+  height: $drawer-height;
+  width: $drawer-width;
+  background: $drawer-color;
+  transition: 0.5s;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  margin: rem(6.5) 0;
+}
+
+.hamburger span:nth-child(3) {
+  top: 0;
+}
+
+.hamburger.is-open span {
+  background: $gray;
+}
+
+.hamburger.is-open span:nth-child(1) {
+  top: rem(8);
+  transform: rotate(45deg);
+}
+
+.hamburger.is-open span:nth-child(2) {
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.hamburger.is-open span:nth-child(3) {
+  top: rem(-10);
+  transform: rotate(-45deg);
+}

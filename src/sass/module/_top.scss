@@ -1,0 +1,107 @@
+@use "global" as *;
+
+@keyframes zoomUp {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+.swiper-slide-active .top__swiper-img.slide-img,
+.swiper-slide-duplicate-active .top__swiper-img.slide-img,
+.swiper-slide-prev .top__swiper-img.slide-img {
+  animation: zoomUp 10s linear 0s 1 normal both;
+}
+
+.top {
+  width: min(100%, 100%);
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+
+  @include mq() {
+    height: 100vh;
+  }
+}
+
+.top__wrapper {
+  position: absolute;
+  top: 22.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: map-get($layer, "top");
+  text-align: center;
+  padding: 0 rem(16);
+  width: 100%;
+
+  @include mq() {
+    top: 16.5%;
+  }
+}
+
+.top__title,
+.top__subtitle {
+  font-family: $second-font-family;
+  color: $white;
+  line-height: 1;
+}
+
+.top__subtitle {
+  font-weight: $medium;
+  font-size: rem(16);
+  letter-spacing: 0.1em;
+
+  @include mq() {
+    font-size: rem(30);
+  }
+}
+
+.top__title {
+  font-weight: $bold;
+  font-size: rem(30);
+  letter-spacing: 0.1em;
+  margin-top: rem(16);
+
+  @include mq() {
+    margin-top: rem(24);
+    font-size: rem(70);
+  }
+}
+
+.top__btn {
+  margin-top: rem(16);
+
+  @include mq() {
+    margin-top: rem(32);
+  }
+}
+
+.top__swiper-img.slide-img {
+  height: 50vh;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+
+  @include mq() {
+    height: 100vh;
+    aspect-ratio: 2230/1148;
+  }
+}
+
+.top__swiper-img.slide-img::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(17, 17, 17, 0.2);
+}
+
+.top__swiper-img.slide-img img,
+.top__swiper-img.slide-img source {
+  object-fit: cover;
+  height: 100%;
+}
