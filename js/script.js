@@ -107,14 +107,12 @@ jQuery(function ($) {
   );
 
   //loader
-  $(function(){
-    $(window).on('load',function(){
-      $('.js-loader').delay(600).fadeOut(600);
-      $('.js-loader-bg').delay(900).fadeOut(800);
+  $(function () {
+    const h = $(window).height();
+    $(".js-loader-bg ,.js-loader").height(h).css("display", "block");
   });
-  
-    setTimeout(function(){
-      $('.js-loader,.js-loader-bg').fadeOut(600);
-    },3000);
+  $(window).on("load", function () {
+    $(".js-loader").delay(600).fadeOut(300);
+    $(".js-loader-bg").delay(900).fadeOut(800);
   });
 });
