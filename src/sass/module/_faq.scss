@@ -65,12 +65,9 @@
 
 .faq__item {
   width: 100%;
-  aspect-ratio: 367/284;
   padding: rem(16) rem(24);
   background: $gray-sub;
   position: relative;
-  display: flex;
-  flex-direction: column;
 
   @include mq() {
     width: calc(100% / 3);
