@@ -8,39 +8,30 @@
   font-size: rem(18);
   position: relative;
   display: inline-block;
-  padding: 0 rem(10);
+  padding-left: rem(10);
 
   @include mq() {
     font-size: rem(20);
   }
 }
 
-.effect__title::before,
-.effect__title::after {
-  content: '';
+.effect__title::before {
+  content: "";
   position: absolute;
+  top: 50%;
+  left: 0;
   transform: translateY(-50%);
   width: rem(4);
   height: rem(30);
   background: $color-main;
-  top: 50%;
-}
-
-.effect__title::before {
-  left: 0;
-}
-
-.effect__title::after {
-  right: 0;
 }
 
 .effect__text {
   padding: rem(50) 0;
   text-align: left;
-  
+
   @include mq() {
     padding: rem(100) 0;
     text-align: center;
   }
 }
-
