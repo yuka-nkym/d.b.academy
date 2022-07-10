@@ -534,9 +534,23 @@ details[open] .accordion__text {
 
 /* カード単体 */
 .card {
-  width: 100%;
+  width: min(100%, 600px);
+  width: min(100%, 37.5rem);
   margin-right: auto;
   margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #adff5b;
+}
+@media screen and (min-width: 768px) {
+  .card {
+    display: block;
+    padding: 1rem;
+  }
 }
 
 .card__title {
@@ -554,63 +568,72 @@ details[open] .accordion__text {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-right: auto;
-  margin-left: auto;
-  width: min(100%, 140px);
-  width: min(100%, 8.75rem);
-  -webkit-transition: all 1s linear 0s;
-  transition: all 1s linear 0s;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 140px;
+          flex: 0 0 140px;
+  -ms-flex: 0 0 8.75rem;
+      flex: 0 0 8.75rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 @media screen and (min-width: 768px) {
   .card__title {
+    margin-right: auto;
+    margin-left: auto;
     width: min(100%, 9.375rem);
   }
 }
 
 @media (any-hover: hover) {
   .card__title:hover {
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
+    border-radius: 50%;
   }
 }
 
 .card__lists {
-  padding: 16px 0;
-  padding: 1rem 0;
+  padding: 8px;
+  padding: 0.5rem;
   text-align: justify;
-  width: min(100%, 200px);
-  width: min(100%, 12.5rem);
   margin-right: auto;
   margin-left: auto;
 }
+
 @media screen and (min-width: 768px) {
-  .card__lists {
-    list-style: disc outside none;
-    width: min(100%, 180px);
-    width: min(100%, 11.25rem);
+  .card:nth-of-type(odd) .card__lists {
+    padding-top: 1rem;
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card:nth-of-type(even) .card__lists {
+    padding-top: 0;
+    padding-bottom: 1rem;
   }
 }
 
 /* カード複数 */
-.cards {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.cards__item:nth-of-type(2n) {
-  margin-left: 20px;
-  margin-left: 1.25rem;
-}
 @media screen and (min-width: 768px) {
-  .cards__item:nth-of-type(2n) {
-    margin-left: 0;
+  .cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 }
 
-/* 枚数が増えた時用*/
+.cards__item + .cards__item {
+  margin-top: 16px;
+  margin-top: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .cards__item + .cards__item {
+    margin-top: 0;
+  }
+}
+
+/* 枚数が増えた時用に*/
 @media screen and (min-width: 768px) {
   .cards__item:not(:nth-of-type(4n + 1)) {
     margin-left: 3.125rem;
@@ -623,10 +646,6 @@ details[open] .accordion__text {
   }
 }
 
-.cards--col4 > .cards__item {
-  width: min(100%, (100% - 40px) / 2);
-  width: min(100%, (100% - 2.5rem) / 2);
-}
 @media screen and (min-width: 768px) {
   .cards--col4 > .cards__item {
     width: min(100%, (100% - 9.375rem) / 4);
@@ -634,6 +653,7 @@ details[open] .accordion__text {
 }
 
 /* contact
+※カナ入力チェックあり
 ※必須項目入力したらボタンを押せる
 ---------------------------- */
 .contact {
@@ -911,8 +931,8 @@ input:-webkit-autofill {
   font-size: 1.125rem;
   position: relative;
   display: inline-block;
-  padding-left: 10px;
-  padding-left: 0.625rem;
+  padding: 0 10px;
+  padding: 0 0.625rem;
 }
 @media screen and (min-width: 768px) {
   .effect__title {
@@ -920,11 +940,10 @@ input:-webkit-autofill {
   }
 }
 
-.effect__title::before {
+.effect__title::before,
+.effect__title::after {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 0;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   width: 4px;
@@ -932,6 +951,15 @@ input:-webkit-autofill {
   height: 30px;
   height: 1.875rem;
   background: #adff5b;
+  top: 50%;
+}
+
+.effect__title::before {
+  left: 0;
+}
+
+.effect__title::after {
+  right: 0;
 }
 
 .effect__text {
@@ -961,8 +989,8 @@ input:-webkit-autofill {
   font-size: 1.125rem;
   position: relative;
   display: inline-block;
-  padding-left: 10px;
-  padding-left: 0.625rem;
+  padding: 0 10px;
+  padding: 0 0.625rem;
 }
 @media screen and (min-width: 768px) {
   .faq__title {
@@ -970,11 +998,10 @@ input:-webkit-autofill {
   }
 }
 
-.faq__title::before {
+.faq__title::before,
+.faq__title::after {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 0;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   width: 4px;
@@ -982,6 +1009,21 @@ input:-webkit-autofill {
   height: 30px;
   height: 1.875rem;
   background: #adff5b;
+  top: 50%;
+}
+
+.faq__title::before {
+  left: 0;
+}
+
+.faq__title::after {
+  right: 0;
+}
+
+.faq__subtitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .faq__message {
@@ -1012,10 +1054,18 @@ input:-webkit-autofill {
 
 .faq__item {
   width: 100%;
+  aspect-ratio: 367/284;
   padding: 16px 24px;
   padding: 1rem 1.5rem;
   background: #707070;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 @media screen and (min-width: 768px) {
   .faq__item {
@@ -1027,13 +1077,6 @@ input:-webkit-autofill {
 .faq__item--center {
   color: #111;
   background: #fff;
-  padding: 32px 20px;
-  padding: 2rem 1.25rem;
-}
-@media screen and (min-width: 768px) {
-  .faq__item--center {
-    padding: 2.5rem 1.875rem;
-  }
 }
 
 .faq__item::before,
@@ -1077,12 +1120,15 @@ input:-webkit-autofill {
   border-radius: 50%;
   height: 30px;
   height: 1.875rem;
-  width: 30px;
-  width: 1.875rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30px;
+          flex: 0 0 30px;
+  -ms-flex: 0 0 1.875rem;
+      flex: 0 0 1.875rem;
   text-align: center;
   line-height: 1.15;
-  margin-right: 4px;
-  margin-right: 0.25rem;
+  margin-right: 16px;
+  margin-right: 1rem;
 }
 
 .faq__icon--head {
@@ -1096,12 +1142,16 @@ input:-webkit-autofill {
 }
 
 .faq__text {
-  padding-top: 8px;
-  padding-top: 0.5rem;
+  padding-top: 16px;
+  padding-top: 1rem;
   text-align: justify;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .faq__person {
+  margin-top: auto;
   padding-top: 16px;
   padding-top: 1rem;
   text-align: right;
@@ -1324,7 +1374,6 @@ input:-webkit-autofill {
   }
 }
 
-/* スクロールで色変化 */
 .header.is-change {
   background-color: #111;
 }
@@ -1652,7 +1701,7 @@ pc
 }
 
 /* ----------------------
-メディア逆
+逆バージョン
 ------------------------- */
 @media screen and (min-width: 768px) {
   .media--reverse {
@@ -2363,6 +2412,39 @@ table td {
   height: 100%;
 }
 
+.not-found {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  padding: 100px 20px;
+  padding: 6.25rem 1.25rem;
+}
+
+.not-found__title {
+  font-size: 60px;
+  font-size: 3.75rem;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 700;
+  color: #111;
+}
+@media screen and (min-width: 768px) {
+  .not-found__title {
+    font-size: 5rem;
+  }
+}
+
+.not-found__text {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #111;
+}
+@media screen and (min-width: 768px) {
+  .not-found__text {
+    font-size: 1.875rem;
+  }
+}
+
 .contact-check__text {
   font-size: 30px;
   font-size: 1.875rem;
@@ -2460,37 +2542,6 @@ table td {
   }
 }
 
-.not-found {
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  padding: 100px 20px;
-  padding: 6.25rem 1.25rem;
-}
-
-.not-found__title {
-  font-size: 60px;
-  font-size: 3.75rem;
-  font-family: "Noto Serif JP", serif;
-  font-weight: 700;
-}
-@media screen and (min-width: 768px) {
-  .not-found__title {
-    font-size: 5rem;
-  }
-}
-
-.not-found__text {
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 20px;
-  font-size: 1.25rem;
-}
-@media screen and (min-width: 768px) {
-  .not-found__text {
-    font-size: 1.875rem;
-  }
-}
-
 .effect-margin {
   margin-top: 80px;
   margin-top: 5rem;
@@ -2540,4 +2591,3 @@ table td {
     margin-top: 9.375rem;
   }
 }
-/*# sourceMappingURL=styles.css.map */

@@ -1,9 +1,18 @@
 @use "global" as *;
 /* カード単体 */
+
 .card {
-  width: 100%;
+  width: min(100%, rem(600));
   margin-right: auto;
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  border: 1px solid $color-main;
+
+  @include mq() {
+    display: block;
+    padding: rem(16);
+  }
 }
 
 .card__title {
@@ -14,31 +23,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: auto;
-  margin-left: auto;
-  width: min(100%, rem(140));
-  transition: all 1s linear 0s;
+  flex: 0 0 rem(140);
+  transition: .3s;
 
   @include mq() {
+    margin-right: auto;
+    margin-left: auto;
     width: min(100%, rem(150));
   }
 }
 
 .card__title:hover {
-  @media (any-hover: hover) {
-    transform: rotateY(360deg);
+  @media (any-hover:hover) {
+    border-radius: 50%;
   }
 }
 
 .card__lists {
-  padding: rem(16) 0;
+  padding: rem(8);
   text-align: justify;
-  width: min(100%, rem(200));
   margin-right: auto;
   margin-left: auto;
+}
 
+.card:nth-of-type(odd)  .card__lists {
   @include mq() {
-    list-style: disc outside none;
-    width: min(100%, rem(180));
+    padding-top: rem(16);
+    padding-bottom: 0;
   }
 }
+
+.card:nth-of-type(even) .card__lists {
+  @include mq() {
+    padding-top: 0;
+    padding-bottom: rem(16);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

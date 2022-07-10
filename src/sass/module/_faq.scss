@@ -14,22 +14,34 @@
   font-size: rem(18);
   position: relative;
   display: inline-block;
-  padding-left: rem(10);
+  padding: 0 rem(10);
 
   @include mq() {
     font-size: rem(20);
   }
 }
 
-.faq__title::before {
-  content: "";
+.faq__title::before,
+.faq__title::after {
+  content: '';
   position: absolute;
-  top: 50%;
-  left: 0;
   transform: translateY(-50%);
   width: rem(4);
   height: rem(30);
   background: $color-main;
+  top: 50%;
+}
+
+.faq__title::before {
+  left: 0;
+}
+
+.faq__title::after {
+  right: 0;
+}
+
+.faq__subtitle {
+  display: flex;
 }
 
 .faq__message {
@@ -53,9 +65,12 @@
 
 .faq__item {
   width: 100%;
+  aspect-ratio: 367/284;
   padding: rem(16) rem(24);
   background: $gray-sub;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   @include mq() {
     width: calc(100% / 3);
@@ -66,16 +81,11 @@
 .faq__item--center {
   color: $black;
   background: $white;
-  padding: rem(32) rem(20);
-
-  @include mq() {
-    padding: rem(40) rem(30);
-  }
 }
 
 .faq__item::before,
 .faq__item::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   height: 0;
@@ -104,10 +114,10 @@
   padding: rem(4);
   border-radius: 50%;
   height: rem(30);
-  width: rem(30);
+  flex: 0 0 rem(30);
   text-align: center;
   line-height: 1.15;
-  margin-right: rem(4);
+  margin-right: rem(16);
 }
 
 .faq__icon--head {
@@ -121,11 +131,16 @@
 }
 
 .faq__text {
-  padding-top: rem(8);
+  padding-top: rem(16);
   text-align: justify;
+  display: flex;
 }
 
 .faq__person {
+  margin-top: auto;
   padding-top: rem(16);
   text-align: right;
 }
+
+
+
